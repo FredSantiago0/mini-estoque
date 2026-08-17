@@ -1,6 +1,6 @@
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
   moduleFormat = "cjs"
 }
 
@@ -8,4 +8,13 @@ datasource db {
   provider = "mysql"
 }
 
+model Produto {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  descricao  String?
+  preco      Float
+  quantidade Int
+  status     Boolean  @default(true)
+  criadoEm   DateTime @default(now())
+}
 
